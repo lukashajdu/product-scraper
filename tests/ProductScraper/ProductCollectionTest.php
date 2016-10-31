@@ -19,10 +19,24 @@ class ProductCollectionTest extends TestCase
      */
     public function testAdd()
     {
-        $product = (new Product())->setTitle('Avocado');
+        $product = (new Product())->setTitle('Avocado')->setPricePerUnit(1);
         $collection = new ProductCollection();
 
         $this->assertTrue($collection->add($product));
         $this->assertEquals($product, $collection->getProducts()[0]);
+    }
+
+    /**
+     * @covers \ProductScraper\ProductCollection::add
+     * @covers \ProductScraper\ProductCollection::getTotalUnitPrice
+     */
+    public function testGetTotalUnitPrice()
+    {
+        $collection = new ProductCollection();
+        $collection->add((new Product())->setPricePerUnit(0.50));
+        $collection->add((new Product())->setPricePerUnit(80.21));
+        $collection->add((new Product())->setPricePerUnit(19));
+
+        $this->assertEquals((0.50 + 80.21 + 19), $collection->getTotalUnitPrice());
     }
 }

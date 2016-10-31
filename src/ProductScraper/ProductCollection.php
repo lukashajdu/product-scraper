@@ -35,6 +35,7 @@ class ProductCollection
     public function add(Product $product): bool
     {
         $this->products[] = $product;
+        $this->totalUnitPrice += $product->getPricePerUnit();
 
         return true;
     }
