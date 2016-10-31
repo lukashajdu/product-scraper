@@ -1,0 +1,25 @@
+{
+  "name": "lukas/product-scraper",
+  "authors": [
+    {
+      "name": "Lukas Hajdu",
+      "email": "hello@lukashajdu.com"
+    }
+  ],
+  "require": {
+    "php": ">=7"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "5.6.*"
+  },
+  "autoload": {
+    "psr-4": {
+      "ProductScraper\\": "src/ProductScraper"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "ProductScraper\\": "tests/ProductScraper"
+    }
+  }
+}
